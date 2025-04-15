@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>도서 대여 시스템</title>
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+
+<!-- 공통 헤더 -->
+<th:block th:replace="~{fragments/header :: header}"></th:block>
+
+<!-- 메인 콘텐츠 -->
+<div class="container">
+    <h2>책을 쉽고 편하게 대여하세요</h2>
+    <p>원하는 책을 검색하고, 클릭 한 번으로 대여할 수 있는 도서 대여 시스템입니다.</p>
+    <a class="button" th:href="@{/books}">도서 보러 가기</a>
+</div>
+
+<!-- 푸터 -->
+<footer>
+    &copy; 2025 BookRental System. All rights reserved.
+</footer>
+
+</body>
+</html>

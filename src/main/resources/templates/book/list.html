@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>도서 목록</title>
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/book.css}">
+</head>
+<body>
+
+<!-- 공통 헤더 -->
+<th:block th:replace="~{fragments/header :: header}"></th:block>
+
+<!-- 도서 목록 콘텐츠 -->
+<div class="book-list-container">
+    <h2>📘 도서 목록</h2>
+
+    <form th:action="@{/books}" method="get" class="search-form">
+        <input type="text" name="keyword" placeholder="도서 제목 검색" th:value="${param.keyword}" />
+        <button type="submit">검색</button>
+    </form>
+
+    <div class="book-list" th:if="${#lists.isEmpty(books)}">
+        <p>등록된 도서가 없습니다.</p>
+    </div>
+
+    <div class="book-list" th:unless="${#lists.isEmpty(books)}">
+        <table class="book-table">
+            <thead>
+            <tr>
+                <th>제목</th>
+                <th>저자</th>
+                <th>설명</th>
+                <th>상태</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="book : ${books}">
+                <td th:text="${book.title}"></td>
+                <td th:text="${book.author}"></td>
+                <td th:text="${book.available ? '대여 가능' : '대여 중'}"></td>
+                <td>
+                    <form th:action="@{'/rentals/rent/' + ${book.id}}" method="post" th:if="${book.available}">
+                        <button type="submit" class="rent-button">대여</button>
+                    </form>
+                    <span th:unless="${book.available}">-</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="book-register">
+        <a th:href="@{/books/new}" class="register-button">➕ 도서 등록</a>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+.book-list-container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.book-list-container h2 {
+  font-size: 26px;
+  margin-bottom: 30px;
+}
+
+.book-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+.book-table th, .book-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+}
+
+.book-table th {
+  background-color: #f9f9f9;
+}
+
+.rent-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.rent-button:hover {
+  background-color: #0056b3;
+}
+
+.book-register {
+  margin-top: 30px;
+}
+
+.register-button {
+  display: inline-block;
+  background-color: #28a745;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.register-button:hover {
+  background-color: #218838;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+    gap: 10px;
+}
+
+.search-form input[type="text"] {
+    padding: 10px 15px;
+    font-size: 16px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.2s ease;
+}
+
+.search-form input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+.search-form button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.search-form button:hover {
+    background-color: #0056b3;
+}

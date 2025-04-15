@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>도서 상세</title>
+  <link rel="stylesheet" th:href="@{/css/header.css}">
+  <link rel="stylesheet" th:href="@{/css/book-detail.css}">
+</head>
+<body>
+<th:block th:replace="~{fragments/header :: header}"></th:block>
+<div class="book-detail-container">
+  <h2 th:text="${book.title}">도서 제목</h2>
+  <p><strong>저자:</strong> <span th:text="${book.author}">작가 이름</span></p>
+  <p><strong>대여 가능 여부:</strong>
+    <span th:text="${book.available ? '가능' : '대여중'}"
+          th:style="'color:' + (${book.available} ? 'green' : 'red')">
+    </span>
+  </p>
+
+  <form th:action="@{'/rentals/rent/' + ${book.id}}" method="post" th:if="${book.available}">
+    <button type="submit" class="rent-btn">대여하기</button>
+  </form>
+  <p th:unless="${book.available}" style="color: red;">현재 대여 중입니다.</p>
+
+  <a th:href="@{/books}" class="back-link">← 도서 목록으로</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>내 대여 목록</title>
+  <link rel="stylesheet" th:href="@{/css/header.css}">
+  <link rel="stylesheet" th:href="@{/css/rental.css}">
+</head>
+<body>
+
+<!-- 공통 헤더 -->
+<th:block th:replace="~{fragments/header :: header}"></th:block>
+
+<!-- 대여 목록 콘텐츠 -->
+<div class="rental-container">
+  <h2>📚 내 대여 목록</h2>
+
+  <div th:if="${#lists.isEmpty(rentals)}">
+    <p>대여한 책이 없습니다.</p>
+  </div>
+
+  <div th:unless="${#lists.isEmpty(rentals)}">
+    <table class="rental-table">
+      <thead>
+      <tr>
+        <th>도서명</th>
+        <th>대여일</th>
+        <th>반납일</th>
+        <th>상태</th>
+        <th>반납</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="rental : ${rentals}">
+        <td th:text="${rental.book.title}"></td>
+        <td th:text="${#temporals.format(rental.rentalDate, 'yyyy-MM-dd')}"></td>
+        <td th:text="${rental.returnDate != null ? #temporals.format(rental.returnDate, 'yyyy-MM-dd') : '-'}"></td>
+        <td th:text="${rental.returnDate != null ? '반납 완료' : '대여 중'}"></td>
+        <td>
+          <form th:action="@{'/rentals/' + ${rental.id} + '/return'}" method="post" th:if="${rental.returnDate == null}">
+            <button type="submit" class="return-button">반납</button>
+          </form>
+          <span th:if="${rental.returnDate != null}">-</span>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</body>
+</html>

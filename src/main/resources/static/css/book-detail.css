@@ -1,0 +1,46 @@
+.book-detail-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+.book-detail-container h2 {
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+
+.book-detail-container p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.rent-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.rent-btn:hover {
+  background-color: #0056b3;
+}
+
+.back-link {
+  display: block;
+  margin-top: 30px;
+  color: #555;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}

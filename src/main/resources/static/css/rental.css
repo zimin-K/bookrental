@@ -1,0 +1,39 @@
+.rental-container {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.rental-container h2 {
+  font-size: 26px;
+  margin-bottom: 30px;
+}
+
+.rental-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+.rental-table th, .rental-table td {
+  border: 1px solid #ccc;
+  padding: 12px;
+}
+
+.rental-table th {
+  background-color: #f2f2f2;
+}
+
+.return-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.return-button:hover {
+  background-color: #218838;
+}

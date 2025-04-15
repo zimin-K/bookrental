@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>도서 등록</title>
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/book-form.css}">
+</head>
+<body>
+<th:block th:replace="~{fragments/header :: header}"></th:block>
+
+<div class="form-container">
+    <h2>📘 도서 등록</h2>
+    <form th:action="@{/books}" method="post">
+        <label for="title">제목</label>
+        <input type="text" id="title" name="title" placeholder="도서 제목" required>
+
+        <label for="author">저자</label>
+        <input type="text" id="author" name="author" placeholder="저자명" required>
+
+        <button type="submit">등록하기</button>
+    </form>
+    <div class="back-link">
+        <a th:href="@{/books}">← 도서 목록으로 돌아가기</a>
+    </div>
+</div>
+
+</body>
+</html>

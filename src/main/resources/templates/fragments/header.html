@@ -1,0 +1,19 @@
+<div th:fragment="*" xmlns:th="http://www.thymeleaf.org">
+    <div class="header" th:fragment="header">
+        <h1>📚 도서 대여 시스템</h1>
+        <div class="nav">
+            <a th:href="@{/}">홈</a>
+            <a th:href="@{/books}">도서 목록</a>
+            <a th:href="@{/rentals/my}">내 대여 목록</a>
+
+            <span th:if="${#authorization.expression('isAuthenticated()')}">
+                <span th:text="${#authentication.name}" style="margin-left: 10px; color: #ccc;"></span>
+                <a th:href="@{/logout}">로그아웃</a>
+            </span>
+            <span th:unless="${#authorization.expression('isAuthenticated()')}">
+                <a th:href="@{/login}">로그인</a>
+                <a th:href="@{/register}">회원가입</a>
+            </span>
+        </div>
+    </div>
+</div>
